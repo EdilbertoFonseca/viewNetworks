@@ -1,0 +1,170 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ViewNetworks 1.0\n"
+"POT-Creation-Date: 2022-08-16 16:13-0300\n"
+"PO-Revision-Date: 2022-08-16 16:15-0300\n"
+"Last-Translator: Edilberto Fonseca <edilberto.fonseca@outlook.com>\n"
+"Language-Team: Edilberto Fonseca <edilberto.fonseca@outlook.con>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: globalPlugins/ViewNetworks\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPath-2: globalPlugins/ViewNetworks\n"
+"X-Poedit-SearchPath-3: globalPlugins/ViewNetworks/dialogs\n"
+"X-Poedit-SearchPath-4: buildVars.py\n"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown
+#. on installation and add-on information.
+#: buildVars.py:24
+msgid "List networks and recover password."
+msgstr "Lista redes e recupera senha."
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on
+#. on add-on information from add-ons manager
+#: buildVars.py:28
+msgid ""
+"This addon lists the networks that have been saved on this system and tries "
+"when possible to recover the password."
+msgstr ""
+"Este addon lista as redes que foram salvas neste sistema e tenta quando "
+"possível recuperar a senha."
+
+#. Translators: Lists the profiles in the Wireless Network Connection interface.
+#: globalPlugins/ViewNetworks/__init__.py:32
+msgid "&Network Profiles"
+msgstr "&Perfis de rede"
+
+#. Translators: Search the networks and try to recover the password.
+#: globalPlugins/ViewNetworks/__init__.py:36
+msgid "&Recover Password"
+msgstr "&Recuperar Senha"
+
+#. Translators: Menu About the addon.
+#: globalPlugins/ViewNetworks/__init__.py:40
+msgid "&About"
+msgstr "&Sobre"
+
+#. Translators: Open the help page.
+#: globalPlugins/ViewNetworks/__init__.py:44
+msgid "&Help"
+msgstr "&Ajuda"
+
+#. Translators: Creates the item in the NVDA menu.
+#: globalPlugins/ViewNetworks/__init__.py:48
+msgid "&View Networks"
+msgstr "&Ver redes"
+
+#: globalPlugins/ViewNetworks/__init__.py:50
+msgid "Displays the networks you have connected to."
+msgstr "Exibe as redes às quais você se conectou."
+
+#: globalPlugins/ViewNetworks/__init__.py:50
+#: globalPlugins/ViewNetworks/__init__.py:59
+#: globalPlugins/ViewNetworks/__init__.py:68
+#: globalPlugins/ViewNetworks/__init__.py:88
+msgid "View Networks"
+msgstr "Ver redes"
+
+#. Translators: title of the profiles dialog in the Wireless Network Connection interface.
+#: globalPlugins/ViewNetworks/__init__.py:53
+msgid "Network Profiles"
+msgstr "Perfis de rede"
+
+#: globalPlugins/ViewNetworks/__init__.py:59
+msgid "Recover saved networks password."
+msgstr "Recupere a senha das redes salvas."
+
+#. Translators: Title of the Recover Password dialog.
+#: globalPlugins/ViewNetworks/__init__.py:62
+msgid "Recover Password."
+msgstr "Recuperar Senha."
+
+#: globalPlugins/ViewNetworks/__init__.py:68
+msgid "About the ViewNetworks Add-on."
+msgstr "Sobre o complemento ViewNetworks."
+
+#: globalPlugins/ViewNetworks/__init__.py:71
+msgid "Summary: {}\n"
+msgstr "Resumo: {}\n"
+
+#: globalPlugins/ViewNetworks/__init__.py:72
+msgid "Version: {}\n"
+msgstr "Versão: {}\n"
+
+#: globalPlugins/ViewNetworks/__init__.py:73
+msgid "Description: {}\n"
+msgstr "Descrição: {}\n"
+
+#: globalPlugins/ViewNetworks/__init__.py:74
+msgid ""
+"Autor: {}\n"
+"\n"
+msgstr ""
+"Autor: {}\n"
+"\n"
+
+#: globalPlugins/ViewNetworks/__init__.py:75
+msgid "Minimum version of NVDA required: {}\n"
+msgstr "Versão mínima do NVDA necessária: {}\n"
+
+#: globalPlugins/ViewNetworks/__init__.py:76
+msgid "Latest version of NVDA tested: {}"
+msgstr "Última versão do NVDA testada: {}"
+
+#: globalPlugins/ViewNetworks/__init__.py:85
+msgid "Add-on information"
+msgstr "Informações do add-on"
+
+#: globalPlugins/ViewNetworks/__init__.py:88
+msgid "Opens the ViewNetworks add-on help page."
+msgstr "Abre a página de ajuda do complemento ViewNetworks."
+
+#: globalPlugins/ViewNetworks/dialogs/networks.py:30
+#: globalPlugins/ViewNetworks/dialogs/password.py:45
+msgid "&Close"
+msgstr "&Fechar"
+
+#: globalPlugins/ViewNetworks/dialogs/password.py:24
+msgid "Search: "
+msgstr "Procurar:"
+
+#: globalPlugins/ViewNetworks/dialogs/password.py:30
+msgid "key content: "
+msgstr "conteúdo da chave: "
+
+#: globalPlugins/ViewNetworks/dialogs/password.py:37
+msgid "&Search"
+msgstr "&Procurar"
+
+#: globalPlugins/ViewNetworks/dialogs/password.py:41
+msgid "C&lean"
+msgstr "&Limpar"
+
+#. Translators: Content of the keyContent variable.
+#: globalPlugins/ViewNetworks/dialogs/password.py:57
+msgid "Key Content"
+msgstr "conteúdo da chave"
+
+#. Translators: Message displayed when the network is not found.
+#: globalPlugins/ViewNetworks/dialogs/password.py:72
+msgid "Could not get network information {}!"
+msgstr "Não foi possível obter informações da rede {}!"
+
+#: globalPlugins/ViewNetworks/dialogs/password.py:72
+#: globalPlugins/ViewNetworks/dialogs/password.py:77
+msgid "Atention"
+msgstr "Atenção"
+
+#. Translators: Message displayed when key content cannot be obtained.
+#: globalPlugins/ViewNetworks/dialogs/password.py:77
+#| msgid "Could not get network information {}!"
+msgid "Unable to get network key content {}!"
+msgstr "Não foi possível obter o conteúdo da chave da rede {}!"
