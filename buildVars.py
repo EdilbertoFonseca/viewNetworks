@@ -27,20 +27,27 @@ addon_info = {
 	# on add-on information from add-ons manager
 	"addon_description": _("""This addon lists the networks that have been saved on this system and tries when possible to recover the password."""),
 	# version
-	"addon_version": "1.0",
+	"addon_version": "2023.1.1",
 	# Author(s)
 	"addon_author": u"Edilberto Fonseca <edilberto.fonseca@outlook.com>",
 	# URL for the add-on documentation support
-	"addon_url": "https://github.com/EdilbertoFonseca/ViewNetworks",
+	"addon_url": "https://github.com/EdilbertoFonseca/viewNetworks",
+	# URL for the add-on repository where the source code can be found
+	"addon_sourceURL": "https://github.com/EdilbertoFonseca/viewNetworks",
 	# Documentation file name
 	"addon_docFileName": "readme.html",
-	# Minimum NVDA version supported (e.g. "2018.3")
-	"addon_minimumNVDAVersion": "2021.3.1",
-	# Last NVDA version supported/tested
-	# (e.g. "2018.4", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion": "2022.2.0",
-	# Add-on update channel (default is stable or None)
+	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
+	"addon_minimumNVDAVersion": "2021.3.0",
+	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
+	"addon_lastTestedNVDAVersion": "2023.1.0",
+	# Add-on update channel (default is None, denoting stable releases,
+	# and for development releases, use "dev".)
+	# Do not change unless you know what you are doing!
 	"addon_updateChannel": None,
+	# Add-on license such as GPL 2
+	"addon_license": None,
+	# URL for the license document the ad-on is licensed under
+	"addon_licenseURL": None,
 }
 
 # Define the python files that are the sources of your add-on.

@@ -4,10 +4,14 @@
 # Author: Edilberto Fonseca.
 #Date of creation: 07/08/2022.
 
-import wx
+# Standard Python imports.
 import subprocess
+
+# Standard NVDA imports.
+import wx
 import addonHandler
 
+# For translation process
 addonHandler.initTranslation()
 
 
@@ -21,7 +25,7 @@ class ViewPassword(wx.Dialog):
 		searchSizer= wx.BoxSizer(wx.HORIZONTAL)
 		buttonSizer = wx.BoxSizer(wx.HORIZONTAL)
 
-		labelSearch = wx.StaticText(panel, label=_('Search: '))
+		labelSearch = wx.StaticText(panel, label=_('Enter the network name: '))
 		searchSizer.Add(labelSearch, 0, wx.ALL|wx.EXPAND, 5)
 
 		self.textSearch = wx.TextCtrl(panel, -1)
