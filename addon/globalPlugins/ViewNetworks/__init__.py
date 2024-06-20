@@ -1,24 +1,22 @@
-# -*- coding: utf-8 -*-
+# -*- coding: UTF-8 -*-
 
-# This add-on lists all the networks you have ever connected to.
+# Description: This add-on lists all the networks you have ever connected to.
 # And try as far as possible to display the password.
-# Note: This add-on does not break passwords or try to do so, it is only for recovering # passwords that for some reason you forgot.
+# Note: This add-on does not break passwords or try to do so, it is only for recovering # passwords that for
+# some reason you forgot.
 # Author: Edilberto Fonseca.
-# Creation date: 07/08/2022.
+# Email: edilberto.fonseca@outlook.com
+# Date of creation: 07/08/2022.
 
-# Standard Python imports.
-import os
-
-# Standard NVDA imports.
-import globalPluginHandler
-from scriptHandler import script
 import addonHandler
-import wx
+import globalPluginHandler
 import gui
+import wx
+from scriptHandler import script
 
 # imports from the View Networks addon.
-from .dialogs.networks import ViewNetworks
-from .dialogs.password import ViewPassword
+from .networks import ViewNetworks
+from .password import ViewPassword
 
 # For translation process
 addonHandler.initTranslation()

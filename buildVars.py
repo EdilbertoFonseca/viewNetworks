@@ -14,6 +14,7 @@ import os.path
 def _(arg):
 	return arg
 
+
 # Add-on information variables
 addon_info = {
 	# add-on Name/identifier, internal for NVDA
@@ -27,7 +28,7 @@ addon_info = {
 	# on add-on information from add-ons manager
 	"addon_description": _("""This addon lists the networks that have been saved on this system and tries when possible to recover the password."""),
 	# version
-	"addon_version": "2023.1.1",
+	"addon_version": "2024.1.1",
 	# Author(s)
 	"addon_author": u"Edilberto Fonseca <edilberto.fonseca@outlook.com>",
 	# URL for the add-on documentation support
@@ -39,7 +40,7 @@ addon_info = {
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
 	"addon_minimumNVDAVersion": "2021.3.0",
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion": "2023.1.0",
+	"addon_lastTestedNVDAVersion": "2024.1.0",
 	# Add-on update channel (default is None, denoting stable releases,
 	# and for development releases, use "dev".)
 	# Do not change unless you know what you are doing!
