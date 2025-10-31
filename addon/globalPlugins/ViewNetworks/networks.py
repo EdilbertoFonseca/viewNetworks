@@ -9,9 +9,9 @@
 import subprocess
 
 import addonHandler
-import wx
 import queueHandler
 import ui
+import wx
 
 # For translation process
 addonHandler.initTranslation()
