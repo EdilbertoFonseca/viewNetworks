@@ -1,0 +1,131 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 'ViewNetworks' '2025.2.0'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2025-12-14 19:28+0300\n"
+"PO-Revision-Date: 2026-01-15 17:15+0300\n"
+"Last-Translator: Edilberto Fonseca <edilberto.fonseca@outlook.com>\n"
+"Language-Team: Russian translation team <nvda.ru>, Danil Kostenkov "
+"<danilkostenkov38@gmail.com>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../../../..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: addon/globalPlugins/ViewNetworks\n"
+
+#: addon/globalPlugins/ViewNetworks/__init__.py:42
+msgid "&Network Profiles"
+msgstr "профили сетей"
+
+#: addon/globalPlugins/ViewNetworks/__init__.py:46
+msgid "&Recover Password"
+msgstr "&Восстановить пароль"
+
+#: addon/globalPlugins/ViewNetworks/__init__.py:54
+msgid "Displays the networks you have connected to."
+msgstr "Показывает список сетей, к которым вы подключались."
+
+#: addon/globalPlugins/ViewNetworks/__init__.py:59
+msgid "Network Profiles"
+msgstr "Профили сетей"
+
+#: addon/globalPlugins/ViewNetworks/__init__.py:67
+msgid "Recover saved networks password."
+msgstr "Восстанавливает пароль сохранённых сетей."
+
+#: addon/globalPlugins/ViewNetworks/__init__.py:72
+msgid "Recover Password."
+msgstr "Восстановить пароль."
+
+#: addon/globalPlugins/ViewNetworks/networks.py:37
+#, python-brace-format
+msgid "An instance of {} is already open."
+msgstr "Экземпляр {} уже открыт."
+
+#: addon/globalPlugins/ViewNetworks/networks.py:57
+msgid "Error fetching networks: "
+msgstr "Ошибка поиска сетей: "
+
+#: addon/globalPlugins/ViewNetworks/networks.py:65
+#: addon/globalPlugins/ViewNetworks/password.py:54
+msgid "&Close"
+msgstr "&Закрыть"
+
+#: addon/globalPlugins/ViewNetworks/password.py:34
+msgid "Enter the network name: "
+msgstr "Введите имя сети: "
+
+#: addon/globalPlugins/ViewNetworks/password.py:40
+msgid "Key content: "
+msgstr "Ключ: "
+
+#: addon/globalPlugins/ViewNetworks/password.py:46
+msgid "&Search"
+msgstr "&Поиск"
+
+#: addon/globalPlugins/ViewNetworks/password.py:50
+msgid "C&lean"
+msgstr "О&чистить"
+
+#: addon/globalPlugins/ViewNetworks/password.py:79
+#: addon/globalPlugins/ViewNetworks/password.py:81
+msgid "Attention"
+msgstr "Предупреждение"
+
+#: addon/globalPlugins/ViewNetworks/password.py:86
+msgid ""
+"netsh command not found. Ensure you are running on a supported Windows "
+"environment."
+msgstr ""
+"команда netsh не найдена. Убедитесь, что вы работаете в совместимой среде "
+"Windows."
+
+#: addon/globalPlugins/ViewNetworks/password.py:87
+#: addon/globalPlugins/ViewNetworks/password.py:91
+msgid "Error"
+msgstr "Ошибка"
+
+#: addon/globalPlugins/ViewNetworks/password.py:102
+msgid "Message"
+msgstr "Сообщение"
+
+#: buildVars.py:23
+msgid "List networks and recover password."
+msgstr "Предоставляет список сетей и восстанавливает пароль."
+
+#: buildVars.py:26
+msgid ""
+"This addon lists the networks that have been saved on this system and tries "
+"when possible to recover the password."
+msgstr ""
+"Это дополнение предоставляет список сетей, которые были сохранены в вашей "
+"системе, и пытается, когда это возможно, восстановить пароль."
+
+#: buildVars.py:31
+msgid "Implemented internal code optimizations and menu restructuring."
+msgstr "Реализована внутренняя оптимизация кода и реструктуризация меню."
+
+#~ msgid "Could not find key content for network {nameWiFi}!"
+#~ msgstr "Не удалось найти ключ для {nameWiFi}!"
+
+#~ msgid "Error retrieving network information for {nameWiFi}: {str(e)}"
+#~ msgstr "Ошибка при получении информации о сети {nameWiFi}: {str(e)}"
+
+#~ msgid "An unexpected error occurred: {str(e)}"
+#~ msgstr "Произошла непредвиденная ошибка: {str(e)}"
+
+#~ msgid "&View Networks"
+#~ msgstr "redes &View"
+
+#~ msgid "View Networks"
+#~ msgstr "Exibir redes"
