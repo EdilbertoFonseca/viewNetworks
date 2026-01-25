@@ -1,1 +1,1 @@
-Use this file to explain what has changed in your add-on since the previous release. This will be included automatically in the release description when used with GitHub actions.
+Replaces separate dialogs for listing networks and recovering passwords with a single unified interface in main.py. Removes networks.py and password.py, updates menu integration, improves documentation in English and Portuguese, updates translations, and bumps version to 2026.1.0.
