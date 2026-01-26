@@ -1,133 +1,72 @@
 # View Networks
 
-- **Autor:** Edilberto Fonseca <edilberto.fonseca@outlook.com>
-- **Data de criação:** 08/07/2022
-- **Última atualização:** 2026
+- Autor: Edilberto Fonseca <edilberto.fonseca@outlook.com>
+- Data de criação: 08/07/2022
+- **Licença**: [GPL v2](https://www.gnu.org/licenses/gpl-2.0.html)
 
 ---
 
-O add-on **View Networks** permite listar as redes Wi-Fi salvas no sistema e exibir os detalhes completos de uma rede específica, utilizando informações fornecidas pelo próprio Windows através do comando `netsh`.
+O **View Networks** é um add-on para o NVDA que permite **listar redes Wi-Fi salvas no Windows** e **exibir todos os detalhes de uma rede específica**, incluindo a senha **quando esta estiver armazenada no sistema**.
 
-> ⚠️ **Observação importante:**  
-> Este add-on **não quebra, descriptografa ou tenta adivinhar senhas de Wi-Fi**.  
-> Ele apenas exibe informações **já armazenadas no sistema**, incluindo a senha **somente quando o Windows permite** (ou seja, redes previamente conectadas no dispositivo).
+⚠️ **Importante**  
+Este add-on **não quebra, não força e não tenta descobrir senhas de Wi-Fi**.  
+Ele apenas exibe informações **já salvas pelo próprio Windows**, da mesma forma que o comando `netsh wlan show profile`.
+
+---
+
+## Novidades da versão atual
+
+- Interface **unificada em uma única janela**
+- Dois botões principais:
+  - **Listar redes salvas**
+  - **Mostrar detalhes da rede**
+- Campo único de exibição, mostrando o **conteúdo completo**, exatamente como no Prompt de Comando
+- Seleção manual de **codificação (encoding)**:
+  - `cp850` (padrão)
+  - `cp1252`
+  - `latin1`
+  - `utf-8`
+- Detecção automática de:
+  - Ausência de placa Wi-Fi
+  - Computadores conectados apenas por cabo
+  - Serviço WLAN desativado
+- Compatível com sistemas **sem Wi-Fi**, sem causar erros ou reinício do NVDA
 
 ---
 
 ## Como usar
 
-O uso do add-on é simples e totalmente acessível com o NVDA.
+O add-on pode ser acessado:
 
-Ele pode ser aberto:
+- Pelo **menu Ferramentas do NVDA**
+- Ou por **atalho de teclado**, Windows + Alt + N - Abre o diálogo principal do View Networks
 
-- pelo **menu Ferramentas do NVDA**, ou
-- pelo **atalho de teclado configurado**.
+### Diálogo principal
 
-Ao ser aberto, o add-on apresenta **uma única janela**, onde todas as funcionalidades estão concentradas.
+Ao abrir o View Networks, o usuário encontrará:
 
----
+1. **Campo de seleção de codificação**  
+   Permite escolher a codificação usada pelo Windows para exibição correta dos textos.
 
-## Janela principal (interface unificada)
+2. **Botão “Listar redes salvas”** Alt+ l  
+   Exibe todas as redes Wi-Fi armazenadas no sistema.
 
-A janela principal do View Networks reúne todas as funções em um único diálogo, tornando o uso mais organizado e intuitivo.
+3. **Botão “Mostrar detalhes da rede”** Alt+ m  
+   Solicita o nome da rede e exibe **todas as informações disponíveis**, incluindo a senha, se existente.
 
-### Componentes da janela
+4. **Campo de texto principal**  
+   Mostra o resultado completo do comando `netsh`, sem filtros ou alterações.
 
-1. **Campo “Nome da rede”**
-   - Opcional
-   - Deve ser preenchido apenas quando o usuário quiser exibir os detalhes de uma rede específica.
-
-2. **Campo “Encoding” (codificação do texto)**
-   - Permite escolher a codificação usada para interpretar a saída do comando `netsh`.
-   - O encoding selecionado é utilizado **tanto para listar redes quanto para mostrar detalhes**.
-   - Opções disponíveis incluem:
-     - `cp850` (padrão)
-     - `cp1252`
-     - `latin-1`
-     - `utf-8`
-     - `cp437`
-
-   Esse recurso é especialmente útil em sistemas com idioma ou configuração regional diferentes.
-
-3. **Botão “Listar redes salvas”**
-   - Executa o comando:
-
-     ```dos
-     netsh wlan show profile
-     ```
-
-   - Lista todas as redes Wi-Fi salvas no sistema.
-   - O resultado completo é exibido no campo de saída.
-
-4. **Botão “Mostrar detalhes da rede”**
-   - Utiliza o nome informado no campo “Nome da rede”.
-   - Executa o comando:
-
-     ```dos
-     netsh wlan show profile name="NOME_DA_REDE" key=clear
-     ```
-
-   - Exibe **todo o conteúdo retornado pelo Windows**, exatamente como aparece no Prompt de Comando.
-   - Caso o campo esteja vazio, o NVDA informa que é necessário digitar o nome da rede.
-
-5. **Campo de saída (texto multilinha)**
-   - Área única onde:
-     - a lista de redes é exibida, ou
-     - os detalhes completos de uma rede específica são mostrados.
-   - O foco é movido automaticamente para esse campo após cada ação, facilitando a leitura com o NVDA.
-
-6. **Botão “Copiar”**
-   - Copia todo o conteúdo exibido no campo de saída para a área de transferência.
-   - Útil para colar em e-mails, documentos ou enviar para suporte técnico.
-
-7. **Botão “Fechar”**
-   - Fecha a janela do add-on.
-   - Também pode ser acionado pela tecla **Escape**.
+5. **Botão Fechar** Alt+ f  
+   Encerra o diálogo.
 
 ---
 
-## Acessibilidade
+## Comportamento em PCs sem Wi-Fi
 
-O add-on foi projetado com foco total em acessibilidade:
+Caso o computador:
 
-- Todas as ações geram **mensagens faladas pelo NVDA**.
-- O foco é controlado automaticamente após cada operação.
-- Não há abertura de múltiplas janelas ou diálogos confusos.
-- A interface é totalmente navegável pelo teclado.
+- não possua placa Wi-Fi, ou
+- esteja usando apenas conexão via cabo,
 
----
-
-## Atalhos
-
-Os atalhos podem variar conforme a configuração do usuário, mas normalmente incluem:
-
-1. **Windows + Alt + N** – Abre a janela principal do View Networks
-2. **Windows + Alt + O** – Exibe informações sobre o add-on
-3. **Windows + Alt + J** – Abre a página de ajuda do add-on
-
-> Obs.: Os atalhos podem ser personalizados nas configurações de gestos de entrada do NVDA.
-
----
-
-## Sobre
-
-A opção **Sobre** exibe informações detalhadas do add-on, incluindo:
-
-- Versão do add-on
-- Autor
-- Descrição
-- Versão mínima do NVDA necessária
-- Última versão do NVDA testada
-
----
-
-## Considerações finais
-
-A versão atual do View Networks apresenta:
-
-- Interface unificada e mais organizada
-- Maior estabilidade
-- Melhor compatibilidade com diferentes idiomas do Windows
-- Melhor experiência para usuários de leitores de tela
-
-O add-on evoluiu para oferecer **clareza, controle e acessibilidade**, mantendo sempre o compromisso com a segurança e os limites impostos pelo próprio sistema operacional.
+o add-on exibirá uma mensagem clara informando que **nenhuma interface Wi-Fi foi detectada**, junto com o diagnóstico retornado pelo sistema.

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 'ViewNetworks' '2026.1.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2026-01-25 10:09-0300\n"
-"PO-Revision-Date: 2026-01-25 10:14-0300\n"
+"PO-Revision-Date: 2026-01-25 22:46-0300\n"
 "Last-Translator: Edilberto Fonseca <edilberto.fonseca@outlook.com>\n"
 "Language-Team: Edilberto Fonseca <edilberto.fonseca@outlook.com>\n"
 "Language: pt_BR\n"
@@ -38,7 +38,6 @@ msgstr "Codificação:"
 
 #. Action buttons
 #: addon\globalPlugins\ViewNetworks\main.py:102
-#| msgid "&View Networks"
 msgid "&List saved networks"
 msgstr "&Listar redes salvas"
 
@@ -64,7 +63,6 @@ msgid "Saved Wi-Fi networks loaded."
 msgstr "Redes Wi-Fi salvas carregadas."
 
 #: addon\globalPlugins\ViewNetworks\main.py:159
-#| msgid "Error fetching networks: "
 msgid ""
 "Error listing networks:\n"
 "{}"
@@ -73,12 +71,10 @@ msgstr ""
 "{}"
 
 #: addon\globalPlugins\ViewNetworks\main.py:160
-#| msgid "Error fetching networks: "
 msgid "Error listing networks."
 msgstr "Erro ao listar redes."
 
 #: addon\globalPlugins\ViewNetworks\main.py:166
-#| msgid "Enter the network name: "
 msgid "Please enter a network name."
 msgstr "Insira um nome de rede."
 
@@ -91,7 +87,6 @@ msgid "Network details loaded."
 msgstr "Mostrar detalhes da rede"
 
 #: addon\globalPlugins\ViewNetworks\main.py:188
-#| msgid "Error fetching networks: "
 msgid ""
 "Error retrieving network details:\n"
 "{}"
@@ -100,7 +95,6 @@ msgstr ""
 "{}"
 
 #: addon\globalPlugins\ViewNetworks\main.py:189
-#| msgid "Error fetching networks: "
 msgid "Error retrieving network details."
 msgstr "Erro ao recuperar detalhes da rede."
 

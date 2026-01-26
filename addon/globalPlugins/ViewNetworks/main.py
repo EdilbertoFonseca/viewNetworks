@@ -2,14 +2,8 @@
 
 """
 Author: Edilberto Fonseca <edilberto.fonseca@outlook.com>
-Copyright: (C) 2025 Edilberto Fonseca
-
-This file is covered by the GNU General Public License.
-See the file COPYING for more details or visit:
-https://www.gnu.org/licenses/gpl-2.0.html
-
-Created on: 07/08/2022
-Refactored on: 2026
+Copyright: (C) 2025
+License: GPL v2
 """
 
 import subprocess
@@ -18,188 +12,172 @@ import addonHandler
 import queueHandler
 import ui
 import wx
-from logHandler import log
 
-# Get add-on summary for use in UI messages
-ADDON_SUMMARY = addonHandler.getCodeAddon().manifest["summary"]
-
-# Initialize translation support
 addonHandler.initTranslation()
 
-ENCODING_CHOICES = ('cp850', 'cp1252', 'latin-1', 'utf-8', 'cp437')
+ADDON_SUMMARY = addonHandler.getCodeAddon().manifest["summary"]
 
-NETSH_LIST_CMD = ['netsh', 'wlan', 'show', 'profile']
-
-
-def run_netsh(command, encoding):
-	"""
-	Executes a netsh command using the selected encoding,
-	with safe fallback in case of decoding issues.
-	"""
-	try:
-		log.debug(f"Running netsh with encoding: {encoding}")
-		return subprocess.check_output(
-			command,
-			encoding=encoding,
-			errors='strict',
-			shell=False
-		)
-	except UnicodeDecodeError:
-		log.warning(f"Unicode error with {encoding}, falling back to latin-1.")
-		return subprocess.check_output(
-			command,
-			encoding='latin-1',
-			errors='replace',
-			shell=False
-		)
+# Encodings mais comuns no Windows PT/EN
+AVAILABLE_ENCODINGS = [
+	"cp850",
+	"cp1252",
+	"latin1",
+	"utf-8",
+]
 
 
 class ViewNetworks(wx.Dialog):
-	"""Unified dialog for listing Wi-Fi networks and showing profile details."""
 	_instance = None
 
 	def __new__(cls, *args, **kwargs):
 		if not cls._instance:
-			cls._instance = super(ViewNetworks, cls).__new__(cls)
+			cls._instance = super().__new__(cls)
 		else:
-			msg = _("An instance of {} is already open.").format(ADDON_SUMMARY)
-			queueHandler.queueFunction(queueHandler.eventQueue, ui.message, msg)
+			queueHandler.queueFunction(
+				queueHandler.eventQueue,
+				ui.message,
+				_("O diálogo {} já está aberto.").format(ADDON_SUMMARY),
+			)
 		return cls._instance
 
 	def __init__(self, parent, title):
-		if getattr(self, "_initialized", False):
+		if hasattr(self, "initialized"):
 			return
-		self._initialized = True
+		self.initialized = True
 
-		super().__init__(parent, title=title)
-		self.SetMinSize((600, 500))
-		self.CentreOnScreen()
+		super().__init__(parent, title=title, size=(600, 500))
 
 		panel = wx.Panel(self)
-
 		mainSizer = wx.BoxSizer(wx.VERTICAL)
-		topSizer = wx.BoxSizer(wx.HORIZONTAL)
-		buttonSizer = wx.BoxSizer(wx.HORIZONTAL)
-		outputSizer = wx.BoxSizer(wx.VERTICAL)
-		bottomSizer = wx.BoxSizer(wx.HORIZONTAL)
 
-		# Network name
-		labelNetwork = wx.StaticText(panel, label=_("Network name:"))
-		topSizer.Add(labelNetwork, 0, wx.ALL | wx.CENTER, 5)
+		# === Encoding ===
+		encodingSizer = wx.BoxSizer(wx.HORIZONTAL)
+		encodingLabel = wx.StaticText(panel, label=_("Codificação:"))
+		self.encodingChoice = wx.Choice(panel, choices=AVAILABLE_ENCODINGS)
+		self.encodingChoice.SetSelection(0)
 
-		self.textNetwork = wx.TextCtrl(panel)
-		topSizer.Add(self.textNetwork, 1, wx.ALL | wx.EXPAND, 5)
+		encodingSizer.Add(encodingLabel, 0, wx.ALL | wx.CENTER, 5)
+		encodingSizer.Add(self.encodingChoice, 0, wx.ALL | wx.CENTER, 5)
 
-		# Encoding selection
-		labelEncoding = wx.StaticText(panel, label=_("Encoding:"))
-		topSizer.Add(labelEncoding, 0, wx.ALL | wx.CENTER, 5)
-
-		self.choiceEncoding = wx.Choice(panel, choices=ENCODING_CHOICES)
-		self.choiceEncoding.SetSelection(0)  # cp850 default
-		topSizer.Add(self.choiceEncoding, 0, wx.ALL | wx.CENTER, 5)
-
-		# Action buttons
-		self.buttonList = wx.Button(panel, label=_("&List saved networks"))
-		self.buttonDetails = wx.Button(panel, label=_("Show &network details"))
-
-		self.Bind(wx.EVT_BUTTON, self.onListNetworks, self.buttonList)
-		self.Bind(wx.EVT_BUTTON, self.onShowDetails, self.buttonDetails)
-
-		buttonSizer.Add(self.buttonList, 0, wx.ALL | wx.CENTER, 5)
-		buttonSizer.Add(self.buttonDetails, 0, wx.ALL | wx.CENTER, 5)
-
-		# Output text
-		self.textOutput = wx.TextCtrl(
+		# === Campo de saída ===
+		self.outputCtrl = wx.TextCtrl(
 			panel,
-			style=wx.TE_MULTILINE | wx.TE_READONLY | wx.TE_RICH2
+			style=wx.TE_MULTILINE | wx.TE_READONLY,
 		)
-		outputSizer.Add(self.textOutput, 1, wx.ALL | wx.EXPAND, 5)
 
-		# Bottom buttons
-		self.buttonCopy = wx.Button(panel, label=_("&Copy"))
-		self.buttonClose = wx.Button(panel, wx.ID_CANCEL, label=_("&Close"))
+		# === Botões ===
+		buttonSizer = wx.BoxSizer(wx.HORIZONTAL)
 
-		self.Bind(wx.EVT_BUTTON, self.onCopy, self.buttonCopy)
-		self.Bind(wx.EVT_BUTTON, self.onClose, self.buttonClose)
+		self.btnList = wx.Button(panel, label=_("&Listar redes salvas"))
+		self.btnDetails = wx.Button(panel, label=_("&Mostrar detalhes da rede"))
+		self.btnClose = wx.Button(panel, wx.ID_CANCEL, label=_("&Fechar"))
 
-		bottomSizer.Add(self.buttonCopy, 0, wx.ALL | wx.CENTER, 5)
-		bottomSizer.Add(self.buttonClose, 0, wx.ALL | wx.CENTER, 5)
+		buttonSizer.Add(self.btnList, 0, wx.ALL, 5)
+		buttonSizer.Add(self.btnDetails, 0, wx.ALL, 5)
+		buttonSizer.Add(self.btnClose, 0, wx.ALL, 5)
 
-		# Layout
-		mainSizer.Add(topSizer, 0, wx.EXPAND)
+		# === Bindings ===
+		self.btnList.Bind(wx.EVT_BUTTON, self.onListNetworks)
+		self.btnDetails.Bind(wx.EVT_BUTTON, self.onShowDetails)
+		self.Bind(wx.EVT_BUTTON, self.onClose, id=wx.ID_CANCEL)
+
+		# === Layout ===
+		mainSizer.Add(encodingSizer, 0, wx.EXPAND)
+		mainSizer.Add(self.outputCtrl, 1, wx.ALL | wx.EXPAND, 5)
 		mainSizer.Add(buttonSizer, 0, wx.CENTER)
-		mainSizer.Add(outputSizer, 1, wx.EXPAND)
-		mainSizer.Add(bottomSizer, 0, wx.CENTER)
 
 		panel.SetSizer(mainSizer)
+		self.Centre()
 
-		self.textOutput.SetFocus()
-
-	# Actions
-	def getSelectedEncoding(self):
-		return self.choiceEncoding.GetStringSelection() or 'cp850'
-
-	def displayOutput(self, text, announce=None):
-		self.textOutput.SetValue(text)
-		self.textOutput.SetFocus()
-		if announce:
-			ui.message(announce)
-
-	def onListNetworks(self, event):
-		encoding = self.getSelectedEncoding()
-		ui.message(_("Listing saved Wi-Fi networks."))
-		log.info("Listing Wi-Fi profiles")
+	# ======================================================
+	# Utilitário central para executar netsh
+	# ======================================================
+	def run_netsh(self, args):
+		encoding = self.encodingChoice.GetStringSelection()
 
 		try:
-			output = run_netsh(NETSH_LIST_CMD, encoding)
-			self.displayOutput(output, _("Saved Wi-Fi networks loaded."))
-		except Exception as e:
-			log.error(f"Error listing networks: {e}")
-			self.displayOutput(
-				_("Error listing networks:\n{}").format(e),
-				_("Error listing networks.")
+			output = subprocess.check_output(
+				args,
+				stderr=subprocess.STDOUT,
+				encoding=encoding,
+				errors="replace",
+				shell=False,
 			)
+			return output
+		except subprocess.CalledProcessError as e:
+			return e.output or str(e)
+		except FileNotFoundError:
+			return _("O comando netsh não foi encontrado no sistema.")
 
-	def onShowDetails(self, event):
-		network = self.textNetwork.GetValue().strip()
-		if not network:
-			ui.message(_("Please enter a network name."))
-			self.textNetwork.SetFocus()
-			return
+	# ======================================================
+	# Detecção de ausência de Wi-Fi
+	# ======================================================
+	def has_wifi_support(self):
+		output = self.run_netsh(["netsh", "wlan", "show", "interfaces"])
 
-		encoding = self.getSelectedEncoding()
-		ui.message(_("Showing details for network {}.").format(network))
-		log.info(f"Showing details for network: {network}")
-
-		command = [
-			'netsh', 'wlan', 'show', 'profile',
-			f'name="{network}"', 'key=clear'
+		indicators = [
+			"Não há nenhuma interface",
+			"There is no wireless",
+			"WLAN AutoConfig",
+			"não está em execução",
+			"is not running",
 		]
 
-		try:
-			output = run_netsh(command, encoding)
-			self.displayOutput(
-				output,
-				_("Network details loaded.")
-			)
-		except Exception as e:
-			log.error(f"Error retrieving network {network}: {e}")
-			self.displayOutput(
-				_("Error retrieving network details:\n{}").format(e),
-				_("Error retrieving network details.")
-			)
+		for text in indicators:
+			if text.lower() in output.lower():
+				return False, output
 
-	def onCopy(self, event):
-		content = self.textOutput.GetValue()
-		if not content:
-			ui.message(_("There is no content to copy."))
+		return True, output
+
+	# ======================================================
+	# Ações
+	# ======================================================
+	def onListNetworks(self, event):
+		self.outputCtrl.Clear()
+
+		has_wifi, diagnostic = self.has_wifi_support()
+		if not has_wifi:
+			self.outputCtrl.SetValue(
+				_("Nenhuma interface Wi-Fi foi detectada neste sistema.\n\n")
+				+ diagnostic
+			)
 			return
 
-		if wx.TheClipboard.Open():
-			wx.TheClipboard.SetData(wx.TextDataObject(content))
-			wx.TheClipboard.Close()
-			ui.message(_("Content copied to clipboard."))
+		output = self.run_netsh(["netsh", "wlan", "show", "profile"])
+		self.outputCtrl.SetValue(output)
+
+	def onShowDetails(self, event):
+		dlg = wx.TextEntryDialog(
+			self,
+			_("Informe o nome da rede Wi-Fi:"),
+			_("Detalhes da rede"),
+		)
+
+		if dlg.ShowModal() != wx.ID_OK:
+			dlg.Destroy()
+			return
+
+		profile = dlg.GetValue().strip()
+		dlg.Destroy()
+
+		if not profile:
+			ui.message(_("Nome da rede não informado."))
+			return
+
+		self.outputCtrl.Clear()
+
+		has_wifi, diagnostic = self.has_wifi_support()
+		if not has_wifi:
+			self.outputCtrl.SetValue(
+				_("Nenhuma interface Wi-Fi foi detectada neste sistema.\n\n")
+				+ diagnostic
+			)
+			return
+
+		output = self.run_netsh(
+			["netsh", "wlan", "show", "profile", f"name={profile}", "key=clear"]
+		)
+		self.outputCtrl.SetValue(output)
 
 	def onClose(self, event):
-		ViewNetworks._instance = None
 		self.Destroy()
