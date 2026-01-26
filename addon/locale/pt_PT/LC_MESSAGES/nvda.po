@@ -6,113 +6,120 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 'ViewNetworks' '2025.2.0'\n"
+"Project-Id-Version: 'ViewNetworks' '2026.1.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2025-11-07 14:53-0300\n"
-"PO-Revision-Date: 2025-11-07 14:57-0300\n"
+"POT-Creation-Date: 2026-01-25 10:09-0300\n"
+"PO-Revision-Date: 2026-01-25 10:19-0300\n"
 "Last-Translator: Edilberto Fonseca <edilberto.fonseca@outlook.com>\n"
 "Language-Team: Edilberto Fonseca <edilberto.fonseca@outlook.com>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ../../../..\n"
 "X-Poedit-SearchPath-0: addon/globalPlugins/ViewNetworks\n"
 "X-Poedit-SearchPath-1: buildVars.py\n"
 
-#: addon\globalPlugins\ViewNetworks\password.py:34
-msgid "Enter the network name: "
-msgstr "Digite o nome da rede: "
+#: addon\globalPlugins\ViewNetworks\main.py:65
+msgid "An instance of {} is already open."
+msgstr "Uma instância de {} já está aberta."
 
-#: addon\globalPlugins\ViewNetworks\password.py:40
-msgid "Key content: "
-msgstr "Conteúdo da chave: "
+#. Network name
+#: addon\globalPlugins\ViewNetworks\main.py:87
+msgid "Network name:"
+msgstr "Nome da rede:"
 
-#: addon\globalPlugins\ViewNetworks\password.py:46
-msgid "&Search"
-msgstr "&Pesquisar"
+#. Encoding selection
+#: addon\globalPlugins\ViewNetworks\main.py:94
+msgid "Encoding:"
+msgstr "Codificação:"
 
-#: addon\globalPlugins\ViewNetworks\password.py:50
-msgid "C&lean"
-msgstr "Limpar"
+#. Action buttons
+#: addon\globalPlugins\ViewNetworks\main.py:102
+#| msgid "&View Networks"
+msgid "&List saved networks"
+msgstr "&Listar redes salvas"
 
-#. Add a Close button to the dialog.
-#: addon\globalPlugins\ViewNetworks\password.py:54
-#: addon\globalPlugins\ViewNetworks\networks.py:65
+#: addon\globalPlugins\ViewNetworks\main.py:103
+msgid "Show &network details"
+msgstr "Mostrar &detalhes da rede"
+
+#. Bottom buttons
+#: addon\globalPlugins\ViewNetworks\main.py:119
+msgid "&Copy"
+msgstr "&Copiar"
+
+#: addon\globalPlugins\ViewNetworks\main.py:120
 msgid "&Close"
-msgstr "Fechar"
+msgstr "&Fechar"
 
-#: addon\globalPlugins\ViewNetworks\password.py:79
-msgid "Could not find key content for network {nameWiFi}!"
-msgstr "Não foi possível encontrar o conteúdo principal da rede {nameWiFi}!"
+#: addon\globalPlugins\ViewNetworks\main.py:150
+msgid "Listing saved Wi-Fi networks."
+msgstr "Listagem de redes Wi-Fi guardadas."
 
-#: addon\globalPlugins\ViewNetworks\password.py:79
-#: addon\globalPlugins\ViewNetworks\password.py:81
-msgid "Attention"
-msgstr "Atenção"
+#: addon\globalPlugins\ViewNetworks\main.py:155
+msgid "Saved Wi-Fi networks loaded."
+msgstr "Redes Wi-Fi guardadas carregadas."
 
-#: addon\globalPlugins\ViewNetworks\password.py:81
-msgid "Error retrieving network information for {nameWiFi}: {str(e)}"
-msgstr "Erro ao recuperar informações de rede para {nameWiFi}: {str(e)}"
-
-#: addon\globalPlugins\ViewNetworks\password.py:86
+#: addon\globalPlugins\ViewNetworks\main.py:159
+#| msgid "Error fetching networks: "
 msgid ""
-"netsh command not found. Ensure you are running on a supported Windows "
-"environment."
+"Error listing networks:\n"
+"{}"
 msgstr ""
-"comando netsh não encontrado. Certifique-se de estar executando em um "
-"ambiente Windows compatível."
+"Erro ao listar redes:\\n\n"
+"{}"
 
-#: addon\globalPlugins\ViewNetworks\password.py:87
-#: addon\globalPlugins\ViewNetworks\password.py:91
-msgid "Error"
-msgstr "Erro"
+#: addon\globalPlugins\ViewNetworks\main.py:160
+#| msgid "Error fetching networks: "
+msgid "Error listing networks."
+msgstr "Erro ao listar redes."
 
-#: addon\globalPlugins\ViewNetworks\password.py:91
-msgid "An unexpected error occurred: {str(e)}"
-msgstr "Ocorreu um erro inesperado: {str(e)}"
+#: addon\globalPlugins\ViewNetworks\main.py:166
+#| msgid "Enter the network name: "
+msgid "Please enter a network name."
+msgstr "Insira um nome de rede."
 
-#: addon\globalPlugins\ViewNetworks\password.py:102
-msgid "Message"
-msgstr "Mensagem"
+#: addon\globalPlugins\ViewNetworks\main.py:171
+msgid "Showing details for network {}."
+msgstr "Apresentando detalhes da rede {}."
 
-#. Translators: Lists the profiles in the Wireless Network Connection interface.
-#: addon\globalPlugins\ViewNetworks\__init__.py:42
-msgid "&Network Profiles"
-msgstr "perfis de rede"
+#: addon\globalPlugins\ViewNetworks\main.py:183
+msgid "Network details loaded."
+msgstr "Detalhes da rede carregados."
 
-#. Translators: Search the networks and try to recover the password.
-#: addon\globalPlugins\ViewNetworks\__init__.py:46
-msgid "&Recover Password"
-msgstr "&Recuperar senha"
+#: addon\globalPlugins\ViewNetworks\main.py:188
+#| msgid "Error fetching networks: "
+msgid ""
+"Error retrieving network details:\n"
+"{}"
+msgstr ""
+"Erro ao recuperar detalhes da rede:\\n\n"
+"{}"
 
-#: addon\globalPlugins\ViewNetworks\__init__.py:54
+#: addon\globalPlugins\ViewNetworks\main.py:189
+#| msgid "Error fetching networks: "
+msgid "Error retrieving network details."
+msgstr "Erro ao recuperar detalhes da rede."
+
+#: addon\globalPlugins\ViewNetworks\main.py:195
+msgid "There is no content to copy."
+msgstr "Não há conteúdo para copiar."
+
+#: addon\globalPlugins\ViewNetworks\main.py:201
+msgid "Content copied to clipboard."
+msgstr "Conteúdo copiado para a área de transferência."
+
+#: addon\globalPlugins\ViewNetworks\__init__.py:48
 msgid "Displays the networks you have connected to."
 msgstr "Exibe as redes às quais você se conectou."
 
 #. Translators: title of the profiles dialog in the Wireless Network Connection interface.
-#: addon\globalPlugins\ViewNetworks\__init__.py:59
+#: addon\globalPlugins\ViewNetworks\__init__.py:53
 msgid "Network Profiles"
 msgstr "Perfis de rede"
-
-#: addon\globalPlugins\ViewNetworks\__init__.py:67
-msgid "Recover saved networks password."
-msgstr "Recupere a senha de redes salvas."
-
-#. Translators: Title of the Recover Password dialog.
-#: addon\globalPlugins\ViewNetworks\__init__.py:72
-msgid "Recover Password."
-msgstr "Recuperar senha."
-
-#: addon\globalPlugins\ViewNetworks\networks.py:37
-msgid "An instance of {} is already open."
-msgstr "Uma instância de {} já está aberta."
-
-#: addon\globalPlugins\ViewNetworks\networks.py:57
-msgid "Error fetching networks: "
-msgstr "Erro ao buscar redes: "
 
 #. Add-on summary/title, usually the user visible name of the add-on
 #. Translators: Summary/title for this add-on
@@ -137,8 +144,51 @@ msgstr ""
 msgid "Implemented internal code optimizations and menu restructuring."
 msgstr "Implementou otimizações internas de código e reestruturação do menu."
 
-#~ msgid "&View Networks"
-#~ msgstr "redes &View"
+#~ msgid "Key content: "
+#~ msgstr "Conteúdo da chave: "
+
+#~ msgid "&Search"
+#~ msgstr "&Pesquisar"
+
+#~ msgid "C&lean"
+#~ msgstr "Limpar"
+
+#~ msgid "Could not find key content for network {nameWiFi}!"
+#~ msgstr "Não foi possível encontrar o conteúdo principal da rede {nameWiFi}!"
+
+#~ msgid "Attention"
+#~ msgstr "Atenção"
+
+#~ msgid "Error retrieving network information for {nameWiFi}: {str(e)}"
+#~ msgstr "Erro ao recuperar informações de rede para {nameWiFi}: {str(e)}"
+
+#~ msgid ""
+#~ "netsh command not found. Ensure you are running on a supported Windows "
+#~ "environment."
+#~ msgstr ""
+#~ "comando netsh não encontrado. Certifique-se de estar executando em um "
+#~ "ambiente Windows compatível."
+
+#~ msgid "Error"
+#~ msgstr "Erro"
+
+#~ msgid "An unexpected error occurred: {str(e)}"
+#~ msgstr "Ocorreu um erro inesperado: {str(e)}"
+
+#~ msgid "Message"
+#~ msgstr "Mensagem"
+
+#~ msgid "&Network Profiles"
+#~ msgstr "perfis de rede"
+
+#~ msgid "&Recover Password"
+#~ msgstr "&Recuperar senha"
+
+#~ msgid "Recover saved networks password."
+#~ msgstr "Recupere a senha de redes salvas."
+
+#~ msgid "Recover Password."
+#~ msgstr "Recuperar senha."
 
 #~ msgid "View Networks"
 #~ msgstr "Exibir redes"

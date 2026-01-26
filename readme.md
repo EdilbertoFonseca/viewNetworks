@@ -1,41 +1,72 @@
 ﻿# View Networks
 
-* Author: Edilberto Fonseca <edilberto.fonseca@outlook.com>.
-* Creation date: 07/08/2022.
+- Author: Edilberto Fonseca <edilberto.fonseca@outlook.com>  
+- Creation date: 07/08/2022  
+- **License**: [GPL v2](https://www.gnu.org/licenses/gpl-2.0.html)
 
-----------
+---
 
-This addon lists all networks that have been saved on your device. And try when it is possible to recover the password.
+**View Networks** is an NVDA add-on that allows users to **list Wi-Fi networks saved on Windows** and **display all details of a specific network**, including the password **when it is stored by the system**.
 
-Note: ViewNetworks addon does not break or attempt to break Wi-Fi password. What it does or tries to do is retrieve the password saved when you first connected to a network.
+⚠️ **Important**  
+This add-on **does not break, force, or attempt to discover Wi-Fi passwords**.  
+It only displays information **already saved by Windows**, in the same way as the `netsh wlan show profile` command.
+
+---
+
+## What’s new in the current version
+
+- **Unified interface** in a single window
+- Two main buttons:
+  - **List saved networks**
+  - **Show network details**
+- Single output field showing the **complete content**, exactly as in the Command Prompt
+- Manual **encoding selection**:
+  - `cp850` (default)
+  - `cp1252`
+  - `latin1`
+  - `utf-8`
+- Automatic detection of:
+  - No Wi-Fi adapter present
+  - Computers connected only via Ethernet
+  - WLAN service disabled
+- Compatible with systems **without Wi-Fi**, without causing errors or NVDA restarts
+
+---
 
 ## How to use
 
-Its use is relatively easy. Just call it by shortcut keys or access it through NVDA's tools menu.
+The add-on can be accessed:
 
-### List Networks Dialog
+- From the **NVDA Tools menu**
+- Or via a **keyboard shortcut**, Windows + Alt + N — Opens the main View Networks dialog
 
-In this dialog, all the Wi-Fi networks saved in the system are listed. Having only one close button. Which can be escaped to terminate or the shortcut alt+C.
+### Main dialog
 
-### Retrieve Password Dialog
+When opening View Networks, the user will find:
 
-In this dialog, the user has a search field, to inform the name of the network for which he intends to try to recover the password. As soon as the Search button is pressed (alt+P), the content of the key will be displayed in a field. or a message warning that information from the network (xxx) could not be obtained.
+1. **Encoding selection field**  
+   Allows choosing the encoding used by Windows for correct text display.
 
-In this dialog there are still two more buttons: Clear (alt+L) that clears the fields and places the focus on the search field. and the Close (escape) or (alt+F) that ends the dialog.
+2. **“List saved networks” button** Alt + L  
+   Displays all Wi-Fi networks stored on the system.
 
-## Shortcuts
+3. **“Show network details” button** Alt + M  
+   Prompts for the network name and displays **all available information**, including the password, if present.
 
-1. Windows+alt+N: Displays the saved networks dialog.
-2. Windows+alt+O: Displays details about the addon.
-3. Windows+alt+P: Displays the Recover Password dialog.
-4. Windows+alt+J: Opens the add-on's help page.
+4. **Main text field**  
+   Shows the complete output of the `netsh` command, without filtering or modification.
 
-## About
+5. **Close button** Alt + F  
+   Closes the dialog.
 
-The about button displays a message with information about the add-on, they are:
+---
 
-* Version;
-* Author;
-* Description;
-* Minimum version of NVDA required;
-* Latest version of NVDA tested.
+## Behaviour on PCs without Wi-Fi
+
+If the computer:
+
+- does not have a Wi-Fi adapter, or
+- is connected only via Ethernet,
+
+the add-on will display a clear message informing that **no Wi-Fi interface was detected**, along with the diagnostic information returned by the system.

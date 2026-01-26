@@ -1,1 +1,1 @@
-Use this file to explain what has changed in your add-on since the previous release. This will be included automatically in the release description when used with GitHub actions.
+Revamps the unified dialog for View Networks with simplified controls, encoding selection, and improved Wi-Fi detection. Updates documentation in English, Portuguese (BR and PT), and Russian to reflect the new interface and features. Updates the pt_BR translation file to match UI changes and removes unused strings.

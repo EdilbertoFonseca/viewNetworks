@@ -1,41 +1,72 @@
 # View Networks
 
-* Autor: Edilberto Fonseca <edilberto.fonseca@outlook.com>.
-* Data da criação: 08/07/2022.
+- Autor: Edilberto Fonseca <edilberto.fonseca@outlook.com>  
+- Data de criação: 08/07/2022  
+- **Licença**: [GPL v2](https://www.gnu.org/licenses/gpl-2.0.html)
 
-----------
+---
 
-Este addon lista todas as redes que foram salvas no seu dispositivo. E tenta quando for possível recuperar a senha.
+O **View Networks** é um extra para o NVDA que permite **listar redes Wi-Fi guardadas no Windows** e **mostrar todos os detalhes de uma rede específica**, incluindo a palavra-passe **quando esta se encontra armazenada no sistema**.
 
-Observação: O addon ViewNetworks, não quebra ou tenta quebrar senha de Wi-fi. O que ele faz ou tenta fazer é recuperar a senha salva quando você conectou pela primeira vez em uma  rede.
+⚠️ **Importante**  
+Este extra **não quebra, não força nem tenta descobrir palavras-passe de Wi-Fi**.  
+Apenas apresenta informações **já guardadas pelo próprio Windows**, da mesma forma que o comando `netsh wlan show profile`.
 
-## Como usar
+---
 
-O seu uso é relativamente fácil. Basta chamá-lo pelas teclas de atalho ou acessá-lo através do menu ferramentas   do NVDA.
+## Novidades da versão actual
 
-### Diálogo Listar redes
+- Interface **unificada numa única janela**
+- Dois botões principais:
+  - **Listar redes guardadas**
+  - **Mostrar detalhes da rede**
+- Campo único de visualização, apresentando o **conteúdo completo**, exactamente como na Linha de Comandos
+- Selecção manual de **codificação (encoding)**:
+  - `cp850` (padrão)
+  - `cp1252`
+  - `latin1`
+  - `utf-8`
+- Detecção automática de:
+  - Ausência de placa Wi-Fi
+  - Computadores ligados apenas por cabo
+  - Serviço WLAN desactivado
+- Compatível com sistemas **sem Wi-Fi**, sem provocar erros ou reinício do NVDA
 
-Neste diálogo são listadas todas as redes wi-fi salvas no sistema. Tendo apenas um botão fechar. Que pode ser usado o escape para encerrar ou o atalho alt+C.
+---
 
-### Diálogo Recuperar senha
+## Como utilizar
 
-Neste diálogo o usuário tem um campo de busca, para informar o nome da rede para qual ele pretende tentar a recuperação da senha. Assim que for pressionado o botão Procurar, (alt+P), será exibido o conteúdo da chave em um campo. ou uma mensagem alertando que não foi possível obter informações da rede (xxx).
+O extra pode ser acedido:
 
-Neste diálogo tem ainda mais dois botões o Limpar (alt+L) que limpa os campos e posiciona o foco no campo de busca. e o Fechar (escape) ou (alt+F) que encerra o diálogo.
+- Através do **menu Ferramentas do NVDA**
+- Ou através de **atalho de teclado**, Windows + Alt + N — Abre o diálogo principal do View Networks
 
-## Atalhos
+### Diálogo principal
 
-1. Windows+alt+N: Exibe o diálogo das redes salvas.
-2. Windows+alt+O: Exibe detalhes sobre o addon.
-3. Windows+alt+P: Exibe o diálogo Recuperar senha.
-4. Windows+alt+J: Abre a página de ajuda do add-on.
+Ao abrir o View Networks, o utilizador encontrará:
 
-## Sobre
+1. **Campo de selecção de codificação**  
+   Permite escolher a codificação utilizada pelo Windows para a correcta apresentação dos textos.
 
-O botão sobre exibe uma mensagem com informação sobre o add-on, são elas:
+2. **Botão “Listar redes guardadas”** Alt + L  
+   Mostra todas as redes Wi-Fi guardadas no sistema.
 
-* Verção;
-* Autor;
-* Descrição;
-* Versão mínima do NVDA necessária;
-* Última versão do NVDA testada.
+3. **Botão “Mostrar detalhes da rede”** Alt + M  
+   Solicita o nome da rede e apresenta **todas as informações disponíveis**, incluindo a palavra-passe, se existir.
+
+4. **Campo de texto principal**  
+   Mostra o resultado completo do comando `netsh`, sem filtros ou alterações.
+
+5. **Botão Fechar** Alt + F  
+   Fecha o diálogo.
+
+---
+
+## Comportamento em computadores sem Wi-Fi
+
+Caso o computador:
+
+- não possua placa Wi-Fi, ou
+- esteja ligado apenas por cabo,
+
+o extra apresentará uma mensagem clara a informar que **nenhuma interface Wi-Fi foi detectada**, juntamente com o diagnóstico devolvido pelo sistema.

@@ -1,41 +1,72 @@
 # View Networks
 
-* Autor: Edilberto Fonseca <edilberto.fonseca@outlook.com>.
-* Data da criação: 08/07/2022.
+- Autor: Edilberto Fonseca <edilberto.fonseca@outlook.com>
+- Data de criação: 08/07/2022
+- **Licença**: [GPL v2](https://www.gnu.org/licenses/gpl-2.0.html)
 
-----------
+---
 
-Este addon lista todas as redes que foram salvas no seu dispositivo. E tenta quando for possível recuperar a senha.
+O **View Networks** é um add-on para o NVDA que permite **listar redes Wi-Fi salvas no Windows** e **exibir todos os detalhes de uma rede específica**, incluindo a senha **quando esta estiver armazenada no sistema**.
 
-Observação: O addon ViewNetworks, não quebra ou tenta quebrar senha de Wi-fi. O que ele faz ou tenta fazer é recuperar a senha salva quando você conectou pela primeira vez em uma  rede.
+⚠️ **Importante**  
+Este add-on **não quebra, não força e não tenta descobrir senhas de Wi-Fi**.  
+Ele apenas exibe informações **já salvas pelo próprio Windows**, da mesma forma que o comando `netsh wlan show profile`.
+
+---
+
+## Novidades da versão atual
+
+- Interface **unificada em uma única janela**
+- Dois botões principais:
+  - **Listar redes salvas**
+  - **Mostrar detalhes da rede**
+- Campo único de exibição, mostrando o **conteúdo completo**, exatamente como no Prompt de Comando
+- Seleção manual de **codificação (encoding)**:
+  - `cp850` (padrão)
+  - `cp1252`
+  - `latin1`
+  - `utf-8`
+- Detecção automática de:
+  - Ausência de placa Wi-Fi
+  - Computadores conectados apenas por cabo
+  - Serviço WLAN desativado
+- Compatível com sistemas **sem Wi-Fi**, sem causar erros ou reinício do NVDA
+
+---
 
 ## Como usar
 
-O seu uso é relativamente fácil. Basta chamá-lo pelas teclas de atalho ou acessá-lo através do menu ferramentas   do NVDA.
+O add-on pode ser acessado:
 
-### Diálogo Listar redes
+- Pelo **menu Ferramentas do NVDA**
+- Ou por **atalho de teclado**, Windows + Alt + N - Abre o diálogo principal do View Networks
 
-Neste diálogo são listadas todas as redes wi-fi salvas no sistema. Tendo apenas um botão fechar. Que pode ser usado o escape para encerrar ou o atalho alt+C.
+### Diálogo principal
 
-### Diálogo Recuperar senha
+Ao abrir o View Networks, o usuário encontrará:
 
-Neste diálogo o usuário tem um campo de busca, para informar o nome da rede para qual ele pretende tentar a recuperação da senha. Assim que for pressionado o botão Procurar, (alt+P), será exibido o conteúdo da chave em um campo. ou uma mensagem alertando que não foi possível obter informações da rede (xxx).
+1. **Campo de seleção de codificação**  
+   Permite escolher a codificação usada pelo Windows para exibição correta dos textos.
 
-Neste diálogo tem ainda mais dois botões o Limpar (alt+L) que limpa os campos e posiciona o foco no campo de busca. e o Fechar (escape) ou (alt+F) que encerra o diálogo.
+2. **Botão “Listar redes salvas”** Alt+ l  
+   Exibe todas as redes Wi-Fi armazenadas no sistema.
 
-## Atalhos
+3. **Botão “Mostrar detalhes da rede”** Alt+ m  
+   Solicita o nome da rede e exibe **todas as informações disponíveis**, incluindo a senha, se existente.
 
-1. Windows+alt+N: Exibe o diálogo das redes salvas.
-2. Windows+alt+O: Exibe detalhes sobre o addon.
-3. Windows+alt+P: Exibe o diálogo Recuperar senha.
-4. Windows+alt+J: Abre a página de ajuda do add-on.
+4. **Campo de texto principal**  
+   Mostra o resultado completo do comando `netsh`, sem filtros ou alterações.
 
-## Sobre
+5. **Botão Fechar** Alt+ f  
+   Encerra o diálogo.
 
-O botão sobre exibe uma mensagem com informação sobre o add-on, são elas:
+---
 
-* Verção;
-* Autor;
-* Descrição;
-* Versão mínima do NVDA necessária;
-* Última versão do NVDA testada.
+## Comportamento em PCs sem Wi-Fi
+
+Caso o computador:
+
+- não possua placa Wi-Fi, ou
+- esteja usando apenas conexão via cabo,
+
+o add-on exibirá uma mensagem clara informando que **nenhuma interface Wi-Fi foi detectada**, junto com o diagnóstico retornado pelo sistema.
