@@ -138,8 +138,7 @@ class ViewNetworks(wx.Dialog):
 		has_wifi, diagnostic = self.has_wifi_support()
 		if not has_wifi:
 			self.outputCtrl.SetValue(
-				_("Nenhuma interface Wi-Fi foi detectada neste sistema.\n\n")
-				+ diagnostic
+				_("Nenhuma interface Wi-Fi foi detectada neste sistema.\n\n") + diagnostic,
 			)
 			return
 
@@ -169,13 +168,12 @@ class ViewNetworks(wx.Dialog):
 		has_wifi, diagnostic = self.has_wifi_support()
 		if not has_wifi:
 			self.outputCtrl.SetValue(
-				_("Nenhuma interface Wi-Fi foi detectada neste sistema.\n\n")
-				+ diagnostic
+				_("Nenhuma interface Wi-Fi foi detectada neste sistema.\n\n") + diagnostic,
 			)
 			return
 
 		output = self.run_netsh(
-			["netsh", "wlan", "show", "profile", f"name={profile}", "key=clear"]
+			["netsh", "wlan", "show", "profile", f"name={profile}", "key=clear"],
 		)
 		self.outputCtrl.SetValue(output)
 

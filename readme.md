@@ -1,15 +1,15 @@
-﻿# View Networks
+# View Networks
 
-- Author: Edilberto Fonseca <edilberto.fonseca@outlook.com>  
-- Creation date: 07/08/2022  
+- Author: Edilberto Fonseca <edilberto.fonseca@outlook.com>
+- Creation date: 07/08/2022
 - **License**: [GPL v2](https://www.gnu.org/licenses/gpl-2.0.html)
 
 ---
 
 **View Networks** is an NVDA add-on that allows users to **list Wi-Fi networks saved on Windows** and **display all details of a specific network**, including the password **when it is stored by the system**.
 
-⚠️ **Important**  
-This add-on **does not break, force, or attempt to discover Wi-Fi passwords**.  
+⚠️ **Important**
+This add-on **does not break, force, or attempt to discover Wi-Fi passwords**.
 It only displays information **already saved by Windows**, in the same way as the `netsh wlan show profile` command.
 
 ---
@@ -45,19 +45,19 @@ The add-on can be accessed:
 
 When opening View Networks, the user will find:
 
-1. **Encoding selection field**  
+1. **Encoding selection field**
    Allows choosing the encoding used by Windows for correct text display.
 
-2. **“List saved networks” button** Alt + L  
+2. **“List saved networks” button** Alt + L
    Displays all Wi-Fi networks stored on the system.
 
-3. **“Show network details” button** Alt + M  
+3. **“Show network details” button** Alt + M
    Prompts for the network name and displays **all available information**, including the password, if present.
 
-4. **Main text field**  
+4. **Main text field**
    Shows the complete output of the `netsh` command, without filtering or modification.
 
-5. **Close button** Alt + F  
+5. **Close button** Alt + F
    Closes the dialog.
 
 ---

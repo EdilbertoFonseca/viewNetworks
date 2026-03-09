@@ -1,15 +1,15 @@
 # View Networks
 
-- Autor: Edilberto Fonseca <edilberto.fonseca@outlook.com>  
-- Data de criação: 08/07/2022  
+- Autor: Edilberto Fonseca <edilberto.fonseca@outlook.com>
+- Data de criação: 08/07/2022
 - **Licença**: [GPL v2](https://www.gnu.org/licenses/gpl-2.0.html)
 
 ---
 
 O **View Networks** é um extra para o NVDA que permite **listar redes Wi-Fi guardadas no Windows** e **mostrar todos os detalhes de uma rede específica**, incluindo a palavra-passe **quando esta se encontra armazenada no sistema**.
 
-⚠️ **Importante**  
-Este extra **não quebra, não força nem tenta descobrir palavras-passe de Wi-Fi**.  
+⚠️ **Importante**
+Este extra **não quebra, não força nem tenta descobrir palavras-passe de Wi-Fi**.
 Apenas apresenta informações **já guardadas pelo próprio Windows**, da mesma forma que o comando `netsh wlan show profile`.
 
 ---
@@ -45,19 +45,19 @@ O extra pode ser acedido:
 
 Ao abrir o View Networks, o utilizador encontrará:
 
-1. **Campo de selecção de codificação**  
+1. **Campo de selecção de codificação**
    Permite escolher a codificação utilizada pelo Windows para a correcta apresentação dos textos.
 
-2. **Botão “Listar redes guardadas”** Alt + L  
+2. **Botão “Listar redes guardadas”** Alt + L
    Mostra todas as redes Wi-Fi guardadas no sistema.
 
-3. **Botão “Mostrar detalhes da rede”** Alt + M  
+3. **Botão “Mostrar detalhes da rede”** Alt + M
    Solicita o nome da rede e apresenta **todas as informações disponíveis**, incluindo a palavra-passe, se existir.
 
-4. **Campo de texto principal**  
+4. **Campo de texto principal**
    Mostra o resultado completo do comando `netsh`, sem filtros ou alterações.
 
-5. **Botão Fechar** Alt + F  
+5. **Botão Fechar** Alt + F
    Fecha o diálogo.
 
 ---

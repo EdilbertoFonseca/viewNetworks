@@ -40,7 +40,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gui.mainFrame.sysTrayIcon.Bind(
 			wx.EVT_MENU,
 			self.script_networks,
-			self.menuItem 
+			self.menuItem,
 		)
 
 	@script(

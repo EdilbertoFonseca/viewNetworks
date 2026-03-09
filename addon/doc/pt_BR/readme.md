@@ -8,8 +8,8 @@
 
 O **View Networks** é um add-on para o NVDA que permite **listar redes Wi-Fi salvas no Windows** e **exibir todos os detalhes de uma rede específica**, incluindo a senha **quando esta estiver armazenada no sistema**.
 
-⚠️ **Importante**  
-Este add-on **não quebra, não força e não tenta descobrir senhas de Wi-Fi**.  
+⚠️ **Importante**
+Este add-on **não quebra, não força e não tenta descobrir senhas de Wi-Fi**.
 Ele apenas exibe informações **já salvas pelo próprio Windows**, da mesma forma que o comando `netsh wlan show profile`.
 
 ---
@@ -45,19 +45,19 @@ O add-on pode ser acessado:
 
 Ao abrir o View Networks, o usuário encontrará:
 
-1. **Campo de seleção de codificação**  
+1. **Campo de seleção de codificação**
    Permite escolher a codificação usada pelo Windows para exibição correta dos textos.
 
-2. **Botão “Listar redes salvas”** Alt+ l  
+2. **Botão “Listar redes salvas”** Alt+ l
    Exibe todas as redes Wi-Fi armazenadas no sistema.
 
-3. **Botão “Mostrar detalhes da rede”** Alt+ m  
+3. **Botão “Mostrar detalhes da rede”** Alt+ m
    Solicita o nome da rede e exibe **todas as informações disponíveis**, incluindo a senha, se existente.
 
-4. **Campo de texto principal**  
+4. **Campo de texto principal**
    Mostra o resultado completo do comando `netsh`, sem filtros ou alterações.
 
-5. **Botão Fechar** Alt+ f  
+5. **Botão Fechar** Alt+ f
    Encerra o diálogo.
 
 ---
