@@ -29,22 +29,18 @@ jobs:
           sudo apt-get update -y
           sudo apt-get install -y gettext
 
-      - name: Create virtual environment
-        run: uv venv
-
       - name: Install Python build tools
         run: |
-          source .venv/bin/activate
-          uv pip install pre-commit scons
+          uv pip install pre-commit
+          uv pip install scons
 
       - name: Run code checks
         run: |
-          source .venv/bin/activate
+          export SKIP=no-commit-to-branch
           pre-commit run --all-files
 
       - name: Build addon
         run: |
-          source .venv/bin/activate
           scons
           scons pot
 
